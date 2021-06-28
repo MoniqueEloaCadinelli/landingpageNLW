@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OriginSix</title>
+
+    <!-- ICONS -->
+    <!--Referência de link criada para pegar os ícones baixados e modificados no site IcoMoon App -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- SWIPER-->
+    <!-- O Swiper tem que vir antes dos meus estilos para que no efeito cascata e na especificidade o meu estilo tenha mais força e prioridade na formatação-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <!--Id é único, ou seja, não poderá ter outro id com esse nome-->
+      <nav class="container">
+        <!--foi criado esse container para poder dar um limite padrão de margem para a página inteira. Ele engloba as outras caixas, como header, main, section etc..-->
+        <!--nav significa que terá elementos de clique de navegação-->
+        <a class="logo" href="#">beauty<span>salon</span>.</a>
+        <!--class significa que eu posso ter um ou mais desses elementos(logo) por aqui e configurar no css(.logo), o que não seria possível se eu colocasse id e não class.  -->
+        <!--Como a logo do projeto tem 2 cores, foi preciso usar uma tag para quebrar a logo e poder no CSS usar essa tag de referência para mudar a cor. No caso usamos a tag span que não tem muito significado mas ela serve para alinhar os elementos deixando um ao lado do outro, pois se eu usasse a tag "div" ele quebraria a logo em 2 e a segunda parte iria para a linha de baixo no meu html-->
+        <!--Aqui começa o MENU -->
+        <!-- 'div' é como se fosse uma caixa imaginária do html -->
+        <div class="menu">
+          <ul class="grid">
+            <!--<ul> é uma lista não ordenada, onde <li> é um ítem da lista, <a> é o clique que a gente vai fazer-->
+            <li><a class="title" href="#home">Início</a></li>
+            <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
+            <li><a class="title" href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        <!-- Aqui termina o MENU -->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="section" id="home">
+        <!--Esse container está nessa div pq ele não vai fazer parte do section, pois na section terá outras coisas acontecendo-->
+        <div class="container grid">
+          <!-- Para colocar mais de uma classe, basta separar os nomes por 'espaço', como fizemos entre container e grid-->
+          <div class="image">
+            <!--Essa foto foi tirada da internet, está com o endereço de localização dela da web, mas podemos colocar fotos que estão no computador-->
+            <img
+              src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aGFpcmRyZXNzZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Mulher sorrindo penteando outra mulher"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Saúde natural para os seus cabelos</h2>
+            <p>
+              Um salão exclusivo em São Paulo, especializado em tratamentos
+              naturais.
+            </p>
+            <a class="button" href="#">Agendar um horário</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+      <!-- É a divisão entre as páginas que fica translucida da direita pra esquerda-->
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://images.unsplash.com/photo-1559599101-f09722fb4948?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGFpcmRyZXNzZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Três mulhres profissionais em corte de cabelo "
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Sobre nós</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+              dolor neque nostrum ullam, consequuntur ratione, molestias
+              repellat nemo perspiciatis quae consectetur quam illum, autem
+              repudiandae quia dolorum quod iure eum!
+            </p>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
+              deleniti dolore eaque asperiores id hic vel sint sapiente ducimus
+              perspiciatis necessitatibus nesciunt atque odio nostrum est autem
+              ipsam, eligendi nam?
+            </p>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repellendus, ipsam reiciendis ipsum sapiente ullam quos commodi
+              hic est delectus doloribus, magni voluptate vitae culpa,
+              laudantium assumenda provident cum minus dolore?
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+      <!-- É a divisão entre as páginas que fica translucida da esquerda pra direita-->
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Serviços</h2>
+            <p class="subtitle">
+              Com mais de 10 anos no mercado, o <strong>Beautysalon</strong> já
+              conquistou clientes de inúmeros países com seus tratamentos
+              exclusivos e totalmente naturais
+            </p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+              <i class="icon-woman-hair"></i>
+              <!--poderíamos usar a tag div, mas quando trabalhamos com ícones é normal usar a tag "i"-->
+              <h3 class="title">Terapia Capilar</h3>
+              <p>
+                Terapia completa para couro cabeludo e fios, protegendo todos os
+                tipos de cabelos, inclusive os longos e finos.
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-trim"></i>
+              <h3 class="title">Cortes</h3>
+              <p>
+                A nossa equipe é repleta de profissionais renomados, famosos por
+                lançarem tendências com cortes diferenciados e clássicos.
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-cosmetic"></i>
+              <h3 class="title">Tratamentos</h3>
+              <p>
+                O beautysalon conta com diversos tratamentos naturais e
+                totalmente veganos, para qualquer tipo de cabelo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <header>
+            <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+          </header>
+          <div class="testimonials swiper-container">
+            <div class="swiper-wrapper">
+              <!-- tivemos que criar essa caixa pq no site do swiper na formatação do html para inserir o swiper temos que ter uma caixa chamada swiper-wrapper e nós já tinhamos uma caixa chamada testimonials, para não mudar tudo o que fizemos criamos essa caixa nova.-->
+
+              <div class="testimonial swiper-slide">
+                <!-- swiper slide pegamos do site swiper a formatação html que ele sugere-->
+                <blockquote>
+                  <!-- é uma tag html que serve para dizer que o que está sendo escitp não foi feito pelo programador, ou seja, uma citação -->
+                  <p>
+                    <span>&ldquo;</span>
+                    <!-- &ldquo é um código especial html para aparecer uma aspas duplas diferencial da comum do teclado -->
+                    Eu sou cliente do Beautysalon há 5 anos e não troco por
+                    nada! Certamente meu cabelo mudou muito depois que comecei a
+                    tratar somente com produtos naturais e veganos. São
+                    profissionais incríveis e qualificados.
+                  </p>
+                  <cite>
+                    <!-- é uma tag normalmente usada para fazer citações, no caso foi usada para colocar a imagem e o nome de que corresponde o "p" desse testimonial-->
+                    <img
+                      src="https://randomuser.me/api/portraits/women/50.jpg"
+                      alt="Foto de Wanessa Souza"
+                    />
+                    <!-- Podemos pegar a foto da internet copiando o endereço da imagem e colocando no src, ou fazer como no próximo usuário que vamos estar pegando uma foto do computador-->
+                    Wanessa Souza
+                  </cite>
+                </blockquote>
+              </div>
+
+              <div class="testimonial swiper-slide">
+                <!-- swiper slide pegamos do site swiper a formatação html que ele sugere-->
+                <blockquote>
+                  <!-- é uma tag html que serve para dizer que o que está sendo escitp não foi feito pelo programador, ou seja, uma citação -->
+                  <p>
+                    <span>&ldquo;</span>
+                    <!-- &ldquo é um código especial html para aparecer uma aspas duplas diferencial da comum do teclado -->
+                    Minha mãe frequenta o salão há anos e me levou um dia para
+                    conhecer. Minha experiência foi incrível, eu continuo
+                    fazendo o a terapia capilar e isso salvou o meu cabelo.
+                    Adoro todos os profissionais do Beautysalon.
+                  </p>
+                  <cite>
+                    <!-- é uma tag normalmente usada para fazer citações, no caso foi usada para colocar a imagem e o nome de que corresponde o "p" desse testimonial-->
+                    <img
+                      src="assets/photos/5.jpg"
+                      alt="Foto de Franciele Venega"
+                    />
+                    <!-- Podemos pegar a foto da internet copiando o endereço da imagem e colocando no src, como na foto anterior ou pegar do computador como essa-->
+                    Luna Falcão
+                  </cite>
+                </blockquote>
+              </div>
+
+              <div class="testimonial swiper-slide">
+                <!-- swiper slide pegamos do site swiper a formatação html que ele sugere-->
+                <blockquote>
+                  <!-- é uma tag html que serve para dizer que o que está sendo escitp não foi feito pelo programador, ou seja, uma citação -->
+                  <p>
+                    <span>&ldquo;</span>
+                    <!-- &ldquo é um código especial html para aparecer uma aspas duplas diferencial da comum do teclado -->
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Fugiat velit excepturi eum laboriosam impedit perspiciatis
+                    autem nesciunt, eaque et exercitationem!
+                  </p>
+                  <cite>
+                    <!-- é uma tag normalmente usada para fazer citações, no caso foi usada para colocar a imagem e o nome de que corresponde o "p" desse testimonial-->
+                    <img
+                      src="assets/photos/7.jpg"
+                      alt="Foto de Valeska Fabirs"
+                    />
+                    Valeska Fabris
+                  </cite>
+                </blockquote>
+              </div>
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a Beautysalon, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://api.whatsapp.com/send?phone=+5521994816123&text=Oi! Gostaria de agendar um horário."
+              class="button"
+              target="_blank"
+              ><i class="icon-whatsapp"></i> Entrar em contato</a
+            >
+            <!-- o target _blank é uma estratégia para abrir uma nova página depois que clicar no botão do whatsapp e não sair da minha página-->
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-phone"></i> 11 99845-6754</li>
+              <li><i class="icon-map-pin"></i> R. Amauri Souza, 346</li>
+              <li><i class="icon-mail"></i> contato@beautysalon.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <!-- brand pq tem uma logo dentro do rodapé-->
+          <a class="logo logo-alt" href="#home">beauty<span>salon</span>.</a>
+          <p>©2021 Beautysalon.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <!-- tem que colocar o target para ele não fechar a página do nosso site e abrir o link em uma nova janela -->
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i>
+          </a>
+          <a href="https://youtube.com" target="_blank">
+            <i class="icon-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- SWIPER JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- SCROLLREVEAL -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- pegamos esse script do site https://scrollrevealjs.org/-->
+
+    <!--- MAIN.JS-->
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,697 @@
+/*==== RESET =============================== */
+* {
+  margin: 0;
+  padding: 0; /* padding é preenchimento*/
+  box-sizing: border-box;
+}
+
+ul {
+  /* Serve para que em nenhuma lista fique aparecendo um (.) do lado esquerdo de cada ítem */
+  list-style: none;
+}
+
+a {
+  text-decoration: none; /* Faz com que a linha que tinha embaixo dos itens clicáveis em "a" sumam */
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/*==== VARIABLES =============================== */
+/* para declarar uma variável no CSS devamos usar o "--" para definir e para se referenciar "var(--) */
+:root {
+  --header-height: 4.5rem; /* 16px é o tamanho padrão do navegador, para saber o "rem" é só dividir o número de px especificado no projeto por 16.*/
+
+  /* colors */
+  --hue: 159;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+  /* FONTS */
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+/*==== BASE =============================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font: 400 1rem var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.title {
+  font: 700 var(--title-font-size) var(--title-font);
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
+
+.button {
+  /* Botão agendar um horário*/
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem; /* Deixa o botão arredondado*/
+  font: 500 1rem var(--body-font);
+  transition: background 0.3s; /* Suaviza a cor de fundo em determinado tempo, isso quando temos a propriedade button:hover  */
+}
+
+.button:hover {
+  /* Serve para quando passar com o mouse no botão o fundo dele muda de cor */
+  background: var(--base-color-alt);
+}
+
+.divider-1 {
+  /*É a divisão entre as páginas que fica translucida da direita pra esquerda */
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
+}
+
+.divider-2 {
+  /*É a divisão entre as páginas que fica translucida da esquerda pra direita */
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+/*==== LAYOUT =============================== */
+.container {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  /* O display grid não altera o layout da página, mas ele habilita funcionabilidades novas no CSS, como o gap. O gap siginica espaçamento entre elementos. Então onde usarmos o grid ele vai ganhar esse gap padrão (Espaçamento de acordo com o nosso projeto do figma).*/
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  padding: calc(5rem + var(--header-height)) 0; /* Colocamos 2 referências do padding pois a primeiro é a referência do eixo vertical e a segunda do eixo horizontal*/
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  /* Dentro do p do h2 de serviços temos um Beautysalon em negrito(strong) e de cor diferente. Então toda vez que tiver um strong dentro de header ele vai ter essa configuração de cor. */
+  color: var(--base-color);
+}
+
+#header {
+  /* border é uma propriedade CSS, mas se usar somente ele irá colocar borda em todos os lados da caixa. Porém no caso só queremos colocar na parte de baixo, por isso usamos o bottom depois do border*/
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+}
+
+/* muda a cor do header, da logo e do ícone do menu quando usamos o scroll 
+#header.scroll {
+  background: var(--base-color);
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.05s;
+}
+
+#header.scroll .logo span {
+  color: white;
+  transition: 0.05s;
+}
+
+#header.scroll .icon-menu {
+  color: white;
+  transition: 0.05s;
+}
+*/
+/*==== LOGO =============================== */
+
+.logo {
+  font: 700 1.31rem 'Poppins', sans-serif;
+  color: var(--title-color);
+}
+
+.logo span {
+  color: var(--base-color);
+}
+
+.logo-alt span {
+  color: var(--body-color);
+}
+
+/*==== NAVIGATION =============================== */
+nav {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Dentro de nav eu tenho 2 elementos o "a" e o "div" para colocar um do lado do outro dentro de nav é só colocar o space-between, mas para isso ficar habilitado temos que colocar o display flex */
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  /* Configura o que acontece quando passamos o mouse por cima dos ÍTENS do MENU. Como está fora do nav.show essa configuração vai se aplicar tanto para mobile quanto para desktop*/
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  /* Criamos um pseudo-element, no caso uma linha que fica embaixo dos ítens, para aparecer depois do conteúdo do "a"*/
+  content: '';
+  width: 0%; /* O pseudo-element fica escondido quando colocamos 0%, se colocarmos 100% ele vai ficar aparecendo o tempo todo*/
+  height: 2px; /* Essa altura pegamos a referência no projeto do figma, na parte do desktop. É a altura entre a palavra "Início" e a linha verde que aparece logo embaixo*/
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.2s; /* Faz a linha aparecer gradativamente */
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  /* O pseudo-element criado no nav u li a::after só vai aparecer quando estivermos com o mouse em cima do ítem do menu, isso que quer dizer o hover*/
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
+}
+
+/* ==== MOSTRAR O MENU===============*/
+/* Essa parte só serve para o mobile, pois na versão desktop o MENU ficará aparecendo o tempo todo*/
+nav.show .menu {
+  /* nav.show não tem espaço entre eles, pois não queremos procurar um show que está dentro do nav. Queremos que o nav receba uma classe show, e quando o nav estiver com a classe show procure o MENU */
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  height: 100vh; /*Viewport height é a altura do dispositivo. Então pedimos pra ele fragmentar em 100 pedaços e pegar os 100 pedaços */
+  width: 100vw; /*Viewport width é a largura do dispositivo. Então pedimos pra ele fragmentar em 100 pedaços e pegar os 100 pedaços */
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: grid;
+  place-content: center;
+}
+
+nav.show .menu ul {
+  display: grid;
+}
+
+nav.show ul.grid {
+  gap: 4rem;
+}
+
+/*==== TOGGLE MENU =============================== */
+/* Funciona como um interruptor. Se estiver ligado ele desliga e se estiver desligado ele liga*/
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav .icon-close {
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  top: -1.5rem; /* O ícone 'X' de fechar o menu vem de cima */
+  right: 1.5rem;
+
+  transition: 0.2s; /* Faz a transicação do ícone hamburguer pro x e vice-versa */
+}
+nav.show div.icon-close {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem; /* Precisa colocar esse top, pq colocamos o top -1.5rem quando ele não estava aparecendo */
+}
+
+/*==== HOME =============================== */
+
+#home {
+  overflow: hidden; /* Significa transbordar */
+}
+
+#home .container {
+  margin: 0;
+}
+
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  /* pseudo-element significa que pelo CSS eu consigo criar um elemento fictício(fantasma), aqui no caso é antes(before) da imagem. */
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute; /* Isso faz com que seja um posicionamento absoluto dentro da página toda e isso pode gerar problema, pois quando a página ficar maior ou menor não saberemos onde posicionar esse objeto fantasma. Pra resolver isso precisamos posicionar ele absolutamente, mas não em relação a página toda e sim relativo a imagem que queremos colocar ele, pra isso precismos criar o #home image antes desse  */
+  top: -16.8%; /* Esse valor foi encontrado usando regra de 3 dos valores 405px está pra 100%, assim como 68 está para 'X'. Sendo que 405 e 68 foram tirados do projeto do figma, sendo o primeiro o tamanho total do quadrado verde(na tela de desktop) e 68 o deslocamento referente a imagem.  */
+  left: 16.7%; /* Esse valor foi encontrado usando regra de 3 dos valores 581px está pra 100%, assim como 97 está para 'X'. Sendo que 581 e 97 foram tirados do projeto do figma, sendo o primeiro o tamanho total do quadrado verde(na tela de desktop) e 97 o deslocamento referente a imagem.  */
+  z-index: 0; /* O eixo z é o de profundidade*/
+}
+
+#home .image img {
+  /* vamos definir o espaçamento existente entre a imagem e a margem direita do nossa layout*/
+  position: relative;
+  right: 2.93rem;
+}
+
+#home .image img,
+#home .image::before {
+  /* As bordas da imagem e do pseudo-element são arredondas, então os dois irão receber a mesma propriedade. 4px*/
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center; /* Centraliza o texto na tela*/
+}
+
+#home .text h1 {
+  margin-bottom: 1rem; /* É a distência de 16px entre o h1 e p*/
+}
+
+#home .text p {
+  margin-bottom: 2rem; /* É a distância de 32px entre p e o botão(Agendar um horário)*/
+}
+
+/*==== ABOUT =============================== */
+#about {
+  background: white;
+}
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+
+#about .image img {
+  position: relative;
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+/*==== SERVICES =============================== */
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08); /* É o sombreado cinza dos cards*/
+  border-bottom: 0.25rem solid var(--base-color); /* É a linha verde embaixo dos cards*/
+  border-radius: 0.25rem 0.25rem 0 0; /* São as duas bordas superiores arredondadas dos cards*/
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem; /* É a margem entre o ícone e o título */
+  font-size: 5rem; /* É o tamanho do ícone */
+  color: var(--base-color);
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem; /* É o espaço entre o ícone e o título */
+}
+
+/*==== TESTIMONIALS =============================== */
+#testimonials {
+  background: white;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem; /* é o espaço entre o texto e o início da caixa de testemonial*/
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative; /* para poder colocar o span absolute */
+  text-indent: 1.875rem; /* identação */
+  margin-bottom: 1.5rem; /* é o espaço entre o texto e a foto da pessoa*/
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute; /* span é absoluto em relação a p*/
+  top: -0.375rem;
+  left: -1.875rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center; /* ele alinha a imagem com o texto(no caso é o nome da pessoa */
+  font-style: normal; /* o cite deixa por padrão a font em itálico, para modificar isso é só colocar normal no font-style */
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover; /* usamos isso pq nem sempre a imagem cabe num quadro 2x2. então ele pega a imagem que está dentro da tag img e encaixa cobrindo todo o espaço que estiver ali */
+  clip-path: circle(); /* faz a imagem ficar arredondada */
+  margin-right: 0.5rem;
+}
+
+/* SWIPER */
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem; /* tamanho do preenchimento interno do testimonial */
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.swiper-pagination-bullet-active {
+  /* bullet é quando tem a bolinha embaixo dos testimonials pra vc poder trocar de um pro outro, quando ela estiver ativa ela tem uma cor padrão definida, quando não tem outra cor */
+  background: var(--base-color);
+}
+
+/*==== CONTACT =============================== */
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
+
+/*==== FOOTER =============================== */
+footer {
+  background: var(--base-color);
+}
+
+footer.section {
+  padding: 4rem 0;
+}
+
+footer .logo {
+  display: inline-block; /* como a logo é um elemento dentro de uma tag <a>, o display padrão dele é o inline, e nesse tipo de display não temos a opção de margin-bottom, mas ao colocar o inline-block ele pega o margin bottom. (no caso é a distância entre a logo e o texto 2021...)*/
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem; /* é o espaço entre cada <p> */
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+footer .social {
+  grid-auto-flow: column;
+  width: fit-content; /* é o espaçamento entre os botões das redes sociais */
+}
+
+/* Para dar efeito nos botões de redes sociais */
+footer .social a {
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  transform: translateY(-8px);
+}
+
+/*  BACK TO TOP */
+.back-to-top {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.5rem;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: 0.3s;
+  transform: translateY(100%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVO */
+/* At + rule no CSS começa sempre com @. No caso @media está ligado a orientação a objeto do tamanho dos dispositivos. Isso está linkado a parte <meta name=viewport.... do html */
+/*======= MEDIA QUERIES =======*/
+/* EXTRA LARGE DEVICES: > 1200 */
+@media (min-width: 1200px) {
+  /* REUSABLE CLASSES */
+  .container {
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 10rem 0;
+  }
+
+  .section header,
+  #testimonials header {
+    max-width: 32rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button {
+    height: 3.125rem;
+  }
+
+  .logo {
+    font-size: 2.25rem;
+  }
+
+  /* NAVIGATION */
+  nav .menu {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
+
+  nav .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav .menu ul li a.title {
+    font: 400 1rem var(--body-font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  nav .menu ul li a.title.active {
+    font-weight: bold;
+    -webkit-font-smoothing: auto;
+  }
+
+  nav .icon-menu {
+    display: none;
+  }
+
+  /* LAYOUT */
+  main {
+    /* É a altura do header mais a altura entre o header e o pseudo-element, no caso 32px */
+    margin-top: var(--header-height);
+  }
+
+  /* HOME */
+  #home .container {
+    grid-auto-flow: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  #home .image {
+    order: 1;
+  }
+
+  #home .text {
+    order: 0;
+    max-width: 24rem;
+    text-align: left;
+  }
+
+  /* ABOUT */
+  #about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+  }
+
+  /* SERVICES */
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  } /* fr=fraction, podemos mudar os valores das fractions para dar mais destaque a um card do que outro. ex.: 1fr 2fr 1fr, ou podemos dividir em mais ou menos colunas 1fr 1fr ou 1fr 2fr 1fr 2fr */
+
+  .card {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /* TESTIMONIALS */
+  #testimonials .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* CONTACT */
+  #contact .container {
+    grid-auto-flow: column;
+    align-items: center;
+  }
+
+  #contact .text {
+    max-width: 25rem;
+  }
+
+  /* FOOTER */
+  footer .section {
+    padding: 3.75rem 0;
+  }
+
+  footer .container {
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+/* LARGE DEVICES: > 1023 */
+/* LARGE DEVICES: > 992 */
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem; /* no layout gande do figma a fonte dos títulos tem 36px*/
+    --subtitle-font-size: 1.125rem; /* no layout gande do figma a fonte do subtitle dos serviços tem 18px  */
+  }
+}
+/* MEDIUM DEVICES: > 767 normalmente é tablet, de tablet pra baixo foi tudo o que foi feito de primeira*/
